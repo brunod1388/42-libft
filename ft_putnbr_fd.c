@@ -12,16 +12,21 @@
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+void ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (src[i] && i < size - 1)
+	if (n == 0)
+		ft_putchar_fd('0', fd);
+	else if (n < 0)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		if (n < -9)
+			ft_putnbr_fd(-(n / 10), fd);
+		ft_putchar_fd('0' + (-(long) n % 10), fd);
 	}
-	dst[i] = 0;
-	return (ft_strlen(src));
+	else
+	{	
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd('0' + n % 10, fd);
+	}
 }

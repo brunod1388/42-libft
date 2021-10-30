@@ -12,16 +12,17 @@
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
+	ssize_t	i;
 
 	i = 0;
-	while (src[i] && i < size - 1)
+	if (s)
 	{
-		dst[i] = src[i];
-		i++;
+		while (s[i])
+		{
+			f(i, s + i);
+			i++;
+		}
 	}
-	dst[i] = 0;
-	return (ft_strlen(src));
 }

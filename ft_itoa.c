@@ -12,16 +12,43 @@
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+static int	ft_ilen(int n)
 {
-	size_t	i;
+	int	l;
 
-	i = 0;
-	while (src[i] && i < size - 1)
+	l = 0;
+	if (n < 1)
+		l++;
+	while (n)
 	{
-		dst[i] = src[i];
-		i++;
+		l++;
+		n /= 10;
 	}
-	dst[i] = 0;
-	return (ft_strlen(src));
+	return (l);
+}
+
+char *ft_itoa(int n)
+{
+	int		l;
+	char	*s;
+
+	l = ft_ilen(n);
+	s = malloc(sizeof(char) * l + 1);
+	if (s == NULL)
+		return (NULL);
+	s[l] = 0;
+	if (n == 0)
+		*s = '0';
+	if (n < 0)
+	{
+		*s = '-';
+		s[--l] = '0' + (-(long)n) % 10;
+		n /= -10;
+	}
+	while (n)
+	{
+		s[--l] = '0' + n % 10;
+		n /= 10;
+	}
+	return (s);
 }

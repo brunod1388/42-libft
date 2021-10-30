@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
+	t_list	*current;
 
-	i = 0;
-	while (src[i] && i < size - 1)
+	if (!*lst || !del)
+		return ;
+	while (*lst)
 	{
-		dst[i] = src[i];
-		i++;
+		current = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(current, del);
 	}
-	dst[i] = 0;
-	return (ft_strlen(src));
 }
