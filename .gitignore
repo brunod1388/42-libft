@@ -1,6 +1,7 @@
 ##################
 #	STANDARD
 ##################
+.DS_Store
 */.DS_Store
 */*.swp
 */*.swo

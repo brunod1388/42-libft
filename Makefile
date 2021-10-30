@@ -66,7 +66,7 @@ $(TEST):	$(OBJS)
 			$(CC) $(CFLAGS) -o $(TEST) $(OBJS) libft_test.c
 
 $(TEST_B):	$(OBJS_BONUS)
-			$(CC) $(CFLAGS) -o $(TEST_B) $(OBJS_BONUS) libft_test_bonus.c
+			$(CC) $(CFLAGS) -o $(TEST_B) $(OBJS_BONUS) libft_bonus_test.c
 
 bonus:		$(OBJS_BONUS)
 			ar rc $(NAME) $(OBJS_BONUS)
