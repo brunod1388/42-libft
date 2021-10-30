@@ -37,9 +37,7 @@ SRCS	=	ft_isalpha.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c 
 
-OBJS	= ${SRCS:.c=.o}
-
-SRCS_BONUS =	${SRCS:.c=.o} \
+SRCS_BONUS =	$(SRCS}) \
 				ft_lstnew_bonus.c \
 				ft_lstadd_front_bonus.c \
 				ft_lstsize_bonus.c \
@@ -50,6 +48,7 @@ SRCS_BONUS =	${SRCS:.c=.o} \
 				ft_lstiter_bonus.c \
 				ft_lstmap_bonus.c
 
+OBJS	= ${SRCS:.c=.o}
 OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
 
 NAME	= libft.a
@@ -68,6 +67,10 @@ $(TEST):	$(OBJS)
 
 $(TEST_B):	$(OBJS_BONUS)
 			$(CC) $(CFLAGS) -o $(TEST_B) $(OBJS_BONUS) libft_test_bonus.c
+
+bonus:		$(OBJS_BONUS)
+			ar rc $(NAME) $(OBJS_BONUS)
+			ranlib $(NAME)
 
 all:		$(NAME)
 

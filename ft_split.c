@@ -45,6 +45,8 @@ char	**ft_split(const char *s, char c)
 	size_t	next_charset;
 	size_t	i;
 
+	if (s == NULL)
+		return (NULL);
 	s_tab = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (s_tab == NULL)
 		return (NULL);
