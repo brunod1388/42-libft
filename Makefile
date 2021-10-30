@@ -37,7 +37,7 @@ SRCS	=	ft_isalpha.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c 
 
-SRCS_BONUS =	$(SRCS}) \
+SRCS_BONUS =	$(SRCS) \
 				ft_lstnew_bonus.c \
 				ft_lstadd_front_bonus.c \
 				ft_lstsize_bonus.c \
@@ -77,10 +77,10 @@ all:		$(NAME)
 re:			fclean $(NAME)
 
 clean:		
-			$(RM) $(OBJS)
+			$(RM) *.o
 
 fclean:		clean
-			$(RM) $(NAME)
+			$(RM) *.o
 
 retest:	fclean $(TEST)
 
