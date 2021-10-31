@@ -59,12 +59,6 @@ $(NAME):	$(OBJS)
 			ar rc $(NAME) $(OBJS)
 			ranlib $(NAME)
 
-$(TEST):	$(OBJS)
-			$(CC) $(CFLAGS) -o $(TEST) $(OBJS) libft_test.c
-
-$(TEST_B):	$(OBJS_BONUS)
-			$(CC) $(CFLAGS) -o $(TEST_B) $(OBJS_BONUS) libft_bonus_test.c
-
 bonus:		$(OBJS_BONUS)
 			ar rc $(NAME) $(OBJS_BONUS)
 			ranlib $(NAME)
@@ -77,6 +71,6 @@ clean:
 			$(RM) *.o
 
 fclean:		clean
-			$(RM) *.o
+			$(RM) $(NAME)
 
 .PHONY:		all re clean fclean bin bonus
