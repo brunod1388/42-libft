@@ -53,9 +53,6 @@ OBJS_BONUS	= ${SRCS_BONUS:.c=.o}
 
 NAME	= libft.a
 
-TEST	= test
-TEST_B	= test_bonus
-
 RM		= rm -f
 
 $(NAME):	$(OBJS)
@@ -82,6 +79,4 @@ clean:
 fclean:		clean
 			$(RM) *.o
 
-retest:	fclean $(TEST)
-
-.PHONY:		all re clean fclean bin
+.PHONY:		all re clean fclean bin bonus
